@@ -4,9 +4,9 @@
 
 This project implements a Deep Learning model for classifying Arabic news articles using a Bidirectional Long Short-Term Memory (BiLSTM) neural network.
 
-The main objective of this project is to build an Arabic text classification system that can automatically identify the category of a news article.
+The main objective of this project is to build an Arabic text classification system capable of automatically identifying the category of a news article.
 
-The model classifies news articles into seven categories:
+The model classifies Arabic news articles into seven categories:
 
 - Culture
 - Finance
@@ -37,7 +37,7 @@ The preprocessing pipeline includes:
 - Removing URLs
 - Removing email addresses
 - Removing Arabic diacritics
-- Normalizing Arabic characters
+- Arabic character normalization
 - Keeping Arabic letters, English words, and numbers
 - Tokenization
 - Sequence padding
@@ -45,7 +45,7 @@ The preprocessing pipeline includes:
 
 ## Dataset Split
 
-The dataset was divided using stratified splitting to maintain class distribution:
+The dataset was divided using stratified splitting to maintain the original class distribution:
 
 - Training set: 70%
 - Validation set: 15%
@@ -63,7 +63,7 @@ Number of samples:
 
 The proposed model is based on a Bidirectional LSTM architecture.
 
-Model layers:
+The model consists of:
 
 - Embedding Layer
 - SpatialDropout1D Layer
@@ -93,7 +93,7 @@ The model was trained using:
 Training techniques:
 
 - ModelCheckpoint for saving the best performing model
-- ReduceLROnPlateau for adjusting the learning rate
+- ReduceLROnPlateau for adaptive learning rate adjustment
 
 
 ## Evaluation Results
@@ -102,17 +102,17 @@ The final evaluation was performed on an unseen test dataset.
 
 ### Test Performance
 
-Test Accuracy:
+**Test Accuracy:**
 
-
+```
 90.31%
+```
 
+**Test Loss:**
 
-Test Loss:
-
-
+```
 0.3478
-
+```
 
 
 The model was also evaluated using:
@@ -123,14 +123,14 @@ The model was also evaluated using:
 - Confusion Matrix
 
 
-The model achieved strong performance on categories with clear linguistic patterns such as:
+The model achieved strong classification performance, especially in categories with clear linguistic patterns such as:
 
 - Sports
 - Medical
 - Religion
 
 
-Some categories showed more confusion due to semantic similarity between news topics, such as:
+Some categories showed more semantic overlap between topics, such as:
 
 - Culture
 - Finance
@@ -138,23 +138,22 @@ Some categories showed more confusion due to semantic similarity between news to
 
 ## Project Structure
 
-
+```
 Arabic-News-Classification-BiLSTM/
 
 │
 ├── notebooks/
-│ ├── Arabic_News_Training.ipynb
-│ └── Arabic_News_Final_Demo.ipynb
+│   ├── Arabic_News_Training.ipynb
+│   └── Arabic_News_Final_Demo.ipynb
 │
 ├── models/
-│ ├── best_model.keras
-│ ├── tokenizer.pkl
-│ └── label_encoder.pkl
+│   ├── tokenizer.pkl
+│   └── label_encoder.pkl
 │
 ├── README.md
 ├── requirements.txt
 └── .gitignore
-
+```
 
 
 ## How to Run
@@ -165,29 +164,47 @@ Install the required Python libraries:
 
 ```bash
 pip install -r requirements.txt
-2. Run the Demo
+```
+
+
+### 2. Run the Demo
 
 Open:
 
+```
 notebooks/Arabic_News_Final_Demo.ipynb
+```
 
-The notebook loads the trained model and performs classification on new Arabic news texts.
+The notebook loads the saved preprocessing tools and performs classification on new Arabic news texts using the trained model.
 
-Technologies Used
-Python
-TensorFlow
-Keras
-Scikit-learn
-NumPy
-Pandas
-Matplotlib
-Saved Model Files
 
-The project includes:
+## Technologies Used
 
-Trained BiLSTM model (best_model.keras)
-Tokenizer (tokenizer.pkl)
-Label Encoder (label_encoder.pkl)
-Author
+- Python
+- TensorFlow
+- Keras
+- Scikit-learn
+- NumPy
+- Pandas
+- Matplotlib
+
+
+## Saved Model Files
+
+The repository includes:
+
+- Tokenizer (`tokenizer.pkl`)
+- Label Encoder (`label_encoder.pkl`)
+
+The trained BiLSTM model file (`best_model.keras`) is stored separately due to repository size limitations.
+
+To run the demo notebook, place the trained model file inside:
+
+```
+models/best_model.keras
+```
+
+
+## Author
 
 Alzubair Abbas
