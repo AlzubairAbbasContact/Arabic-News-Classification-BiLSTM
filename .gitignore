@@ -216,3 +216,18 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Dataset files
+*.zip
+
+# Generated numpy files
+*.npy
+
+# Colab checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+
+# Compiled Python files
+*.pyc
